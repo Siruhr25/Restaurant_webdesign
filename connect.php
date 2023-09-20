@@ -91,25 +91,4 @@
 
     
 
-<?php
-    $username=$_POST['name'] ;
-    $email=$_POST['email'];
-    $number=$_POST['num'];
-    $dob=$_POST['dob'];
-    $gender=$_POST['gender'];
-    $address=$_POST['address'];
 
-    //daatabase connection
-    $conn = new mysqli('localhost','root','','mydb');
-    if($conn->connect_error){
-        die('Connection Failed :'.$conn->connect_error);
-    }else{
-        $stmt=$conn->prepare("insert into registration(Name,Email,Number,dob,Gender,Address)
-        values(?,?,?,?,?,?)");
-        $stmt->bind_param("ssisss",$username,$email,$number,$dob,$gender,$address);
-        $stmt->execute();
-        echo '<script>alert("your registration Successfully!!!");</script>';       
-        $stmt->close();
-    }
-
- ?>
