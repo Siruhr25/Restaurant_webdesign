@@ -89,6 +89,7 @@
 </body>
 </html>
 
+    
 
 <?php
     $username=$_POST['name'] ;
@@ -107,8 +108,7 @@
         values(?,?,?,?,?,?)");
         $stmt->bind_param("ssisss",$username,$email,$number,$dob,$gender,$address);
         $stmt->execute();
-        echo '<script>alert("your registration Successfully!!!");</script>';
-       
+        echo '<script>alert("your registration Successfully!!!");</script>';       
         $stmt->close();
     }
 
